@@ -72,8 +72,10 @@ So, we had divided our team into three parts:
 Most members took part in more than a single team to effectively divide workload
 
 Here follows the team members and what parts they took:
-- *Avirbhav*:
-- *Hardik*: Part of the UI/UX and development team. Worked on the base prototype (MVP) and also helped Shagun and Shaurya in designing the pages.
-- *Sahil*: Part of the ideation and development team. Worked on the base prototype (MVP) and also did market research for the following consumer space.
-- *Shaurya*: Part of the ideation and UI/UX team. Worked on the final touchups along with QoL changes.
-- *Shagun*: Part of the ideation and UI/UX team. Worked on the page design along with user friction reduction.
+Avirbhav: Member of the development and ideation team. Developed the homepage for the base prototype (MVP) and played a key role in integrating the backend with the frontend. He also collaborated closely with the development team to ensure successful project completion.
+Hardik: Member of the UI/UX and development team. Contributed to the development of the base prototype (MVP) and assisted Shagun and Shaurya in designing and refining the platform's pages.
+Harshit: Member of the UI/UX, development, and ideation team. Contributed to backend development and worked with the ideation team during the creation of the base prototype (MVP). He continued to manage and improve backend functionality while the rest of the team focused on frontend development. He also worked
+Sahil: Member of the ideation and development team. Contributed to the development of the base prototype (MVP) and conducted market research to better understand the target consumer space and its needs.
+Shagun: Member of the ideation and UI/UX team. Led page design efforts and focused on reducing user friction to create a smoother and more intuitive user experience.
+Shaurya: Member of the ideation and UI/UX team. Worked on final design refinements, quality-of-life improvements, and overall user experience enhancements to polish the finished product.
+
