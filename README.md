@@ -1,6 +1,6 @@
-# Digital Labs Pathways (Flow)
+# flow
 
-**Digital Labs Pathways** is an AI-driven recruitment orchestrator designed to streamline the candidate assessment process. It features a multi-step applicant flow, automated GitHub profile analysis, and a recruiter dashboard for reviewing and downloading candidate data.
+**flow** is an AI-driven recruitment orchestrator designed to streamline the candidate assessment process. It features a multi-step applicant flow, automated GitHub profile analysis, and a recruiter dashboard for reviewing and downloading candidate data.
 
 ## Features
 
@@ -62,3 +62,18 @@
 ### Recruiter APIs
 - `GET /api/v1/recruiter/candidates`: List all candidates ready for review.
 - `GET /api/v1/recruiter/candidates/{id}`: Get full details for a specific candidate.
+
+## The Team
+So, we had divided our team into three parts:
+- Ideation
+- UI/UX
+- Development
+
+Most members took part in more than a single team to effectively divide workload
+
+Here follows the team members and what parts they took:
+- *Avirbhav*:
+- *Hardik*: Part of the UI/UX and development team. Worked on the base prototype (MVP) and also helped Shagun and Shaurya in designing the pages.
+- *Sahil*: Part of the ideation and development team. Worked on the base prototype (MVP) and also did market research for the following consumer space.
+- *Shaurya*: Part of the ideation and UI/UX team. Worked on the final touchups along with QoL changes.
+- *Shagun*: Part of the ideation and UI/UX team. Worked on the page design along with user friction reduction.
