@@ -1,6 +1,6 @@
 # flow
 
-**flow** is an AI-driven recruitment orchestrator designed to streamline the candidate assessment process. It features a multi-step applicant flow, automated GitHub profile analysis, and a recruiter dashboard for reviewing and downloading candidate data.
+Flow is a responsive, AI-powered recruitment orchestration platform built to streamline candidate assessment and evaluation. Designed for both desktop and mobile devices, it guides applicants through a structured multi-step application process, automatically analyzes GitHub profiles to assess technical expertise, and provides recruiters with a centralized dashboard to review, manage, and download candidate data efficiently.
 
 ## Features
 
@@ -78,4 +78,3 @@ Harshit: Member of the UI/UX, development, and ideation team. Contributed to bac
 Sahil: Member of the ideation and development team. Contributed to the development of the base prototype (MVP) and conducted market research to better understand the target consumer space and its needs.
 Shagun: Member of the ideation and UI/UX team. Led page design efforts and focused on reducing user friction to create a smoother and more intuitive user experience.
 Shaurya: Member of the ideation and UI/UX team. Worked on final design refinements, quality-of-life improvements, and overall user experience enhancements to polish the finished product.
-
