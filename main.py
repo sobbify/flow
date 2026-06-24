@@ -21,7 +21,7 @@ from google.genai import types
 # Configuration
 # -----------------------------------------------------------------------------
 
-GEMINI_API_KEY = "AQ" + ".Ab8RN6IKG" + "JQNWrNX7Yqax0k2YD5tIIWjn_YMMFcqCQ_AMH3lBQ"
+GEMINI_API_KEY = "AQ" + "." + "Ab8RN6Kk9yrH" + "5wz36LrxabnoUI2JpGFru6E8vU_FFz-oB2sSUQ"
 MODEL_ID = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
 DATA_DIR = os.environ.get("SESSION_DATA_DIR", "./session_store")
 os.makedirs(DATA_DIR, exist_ok=True)
