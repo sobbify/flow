@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Digital Labs Pathways — Lighthouse Learning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body data-theme="dark">
+
+<!-- NAV -->
+<nav class="topnav">
+  <div class="brand">
+    <span class="logo-text">DIGITAL LABS</span>
+    <span class="logo-sub">PATHWAYS</span>
+    <span class="dot dot1"></span>
+    <span class="dot dot2"></span>
+  </div>
+  <ul class="nav-links hidden">
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#internships">Internships</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#resources">Resources</a></li>
+  </ul>
+  <button class="btn btn-primary btn-nav hidden" id="navLoginBtn">Login</button>
+</nav>
+
+<!-- HERO / LANDING -->
+<section class="hero" id="screen-hero">
+  <div class="hero-left">
+    <p class="eyebrow">REAL WORLD EXPOSURE</p>
+    <h1 class="hero-title">
+      NOT JUST ANOTHER<br/>
+      <span class="accent">INTERNSHIP.</span>
+    </h1>
+    <p class="hero-sub">
+      Gain real-world experience through structured internships,
+      industry projects, and mentor-led learning pathways
+      designed for ambitious students by digital labs.
+    </p>
+    <div class="hero-cta">
+      <button class="btn btn-primary" id="applyNowBtn">APPLY NOW</button>
+      <button class="btn btn-outline" id="exploreBtn">EXPLORE PROGRAMS</button>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="card portal-card">
+      <h3>STUDENT PORTAL</h3>
+      <p class="muted">Access your applications, internship tasks, mentor sessions, and progress.</p>
+      <form id="portalForm" class="portal-form">
+        <label class="input-wrap">
+          <span class="icon">✉</span>
+          <input type="email" id="portalEmail" placeholder="Email Address" required />
+        </label>
+        <label class="input-wrap">
+          <span class="icon">🔒</span>
+          <input type="password" id="portalPassword" placeholder="Password" required />
+        </label>
+        <button class="btn btn-primary btn-block" type="submit">SIGN IN</button>
+        <div class="divider"><span>or</span></div>
+        <a href="#" class="forgot">Forgot Password?</a>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- STEPPER WRAPPER -->
+<section class="flow hidden" id="flow">
+  <div class="flow-header">
+    <div class="stepper" id="stepper">
+      <div class="step active" data-step="1"><span>1</span><label>Profile</label></div>
+      <div class="step" data-step="2"><span>2</span><label>GitHub</label></div>
+      <div class="step" data-step="3"><span>3</span><label>Assessment</label></div>
+      <div class="step" data-step="4"><span>4</span><label>Final Touch</label></div>
+      <div class="step" data-step="5"><span>5</span><label>Summary</label></div>
+    </div>
+    <div class="save-indicator" id="saveIndicator">Auto-saved</div>
+  </div>
+
+  <!-- STEP 1 — PROFILE FORM -->
+  <div class="screen active" id="screen-1">
+    <div class="form-shell">
+      <p class="q-label">Question 1 :</p>
+      <h2 class="q-title">Who ARE YOU???</h2>
+
+      <div class="form-grid">
+        <div class="avatar-block">
+          <div class="avatar" id="avatarPreview">
+            <span>Insert your image</span>
+          </div>
+          <input type="file" id="avatarInput" accept="image/*" hidden />
+          <button class="btn btn-outline btn-sm" id="avatarBtn">Upload Photo</button>
+        </div>
+
+        <div class="fields">
+          <div class="field">
+            <label>Full Name</label>
+            <input type="text" id="full_name" placeholder="Jane Doe" required />
+          </div>
+          <div class="row">
+            <div class="field">
+              <label>Age</label>
+              <input type="number" id="age" min="13" max="120" placeholder="22" />
+            </div>
+            <div class="field">
+              <label>Gender</label>
+              <select id="gender">
+                <option value="">Select…</option>
+                <option>Female</option>
+                <option>Male</option>
+                <option>Non-binary</option>
+                <option>Prefer not to say</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input type="email" id="email" placeholder="you@example.com" required />
+          </div>
+          <div class="field">
+            <label>School / Institution</label>
+            <input type="text" id="school" placeholder="University of …" />
+          </div>
+          <div class="row">
+            <div class="field">
+              <label>Mobile No.</label>
+              <input type="tel" id="mobile" placeholder="+1 555 0100" />
+            </div>
+            <div class="field">
+              <label>Target Role</label>
+              <input type="text" id="target_role" placeholder="Frontend Engineer" required />
+            </div>
+          </div>
+          <div class="field">
+            <label>GitHub Link <span class="optional">*optional</span></label>
+            <input type="url" id="github_link" placeholder="https://github.com/username" />
+          </div>
+          <div class="field">
+            <label>Declared Skills <span class="optional">comma-separated</span></label>
+            <input type="text" id="skills" placeholder="React, Node.js, TypeScript" />
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-buttons">
+        <button class="btn btn-ghost" id="back1">Previous</button>
+        <button class="btn btn-primary" id="next1">Next →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 — GITHUB -->
+  <div class="screen" id="screen-2">
+    <div class="form-shell">
+      <p class="q-label">Question 2 :</p>
+      <h2 class="q-title">Show us your code.</h2>
+      <p class="muted">We'll analyze your public repositories to enrich your profile. OAuth is optional but improves accuracy.</p>
+
+      <div class="field">
+        <label>GitHub Username</label>
+        <input type="text" id="github_username" placeholder="octocat" />
+      </div>
+      <div class="field">
+        <label>OAuth Token <span class="optional">*optional, never stored after analysis</span></label>
+        <input type="password" id="oauth_token" placeholder="ghp_…" />
+      </div>
+
+      <div id="ghResult" class="gh-result hidden"></div>
+
+      <div class="nav-buttons">
+        <button class="btn btn-ghost" id="back2">← Previous</button>
+        <div class="right-group">
+          <button class="btn btn-outline" id="skipGh">Skip</button>
+          <button class="btn btn-primary" id="analyzeGh">Analyze →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 — ASSESSMENT -->
+  <div class="screen" id="screen-3">
+    <div class="form-shell">
+      <p class="q-label">Question 3 :</p>
+      <h2 class="q-title">Quick Assessment</h2>
+      <p class="muted">Answer in your own words — there's no single correct response.</p>
+
+      <div id="assessmentList"></div>
+
+      <div class="nav-buttons">
+        <button class="btn btn-ghost" id="back3">← Previous</button>
+        <button class="btn btn-primary" id="next3">Next →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4 — FINAL ADDITIONS -->
+  <div class="screen" id="screen-4">
+    <div class="form-shell">
+      <p class="q-label">Final Step :</p>
+      <h2 class="q-title">Anything else we should know?</h2>
+
+      <div class="field">
+        <label>Personal Note</label>
+        <textarea id="personal_note" rows="5" placeholder="A short paragraph about what drives you…"></textarea>
+      </div>
+      <div class="field">
+        <label>Portfolio Links <span class="optional">one URL per line</span></label>
+        <textarea id="portfolio_links" rows="4" placeholder="https://yourportfolio.com&#10;https://dribbble.com/you"></textarea>
+      </div>
+
+      <div class="nav-buttons">
+        <button class="btn btn-ghost" id="back4">← Previous</button>
+        <button class="btn btn-primary" id="submitFinal">Submit Application →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 5 — SUMMARY -->
+  <div class="screen" id="screen-5">
+    <div class="form-shell summary">
+      <div class="success-badge">✓</div>
+      <h2 class="q-title">Application Submitted</h2>
+      <p class="muted">Here's a snapshot of your profile. We'll be in touch via email.</p>
+
+      <div id="summaryCard" class="summary-card"></div>
+
+      <div class="nav-buttons centered">
+        <button class="btn btn-outline" id="startOver">Start Over</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <span class="logo-text small">LIGHTHOUSE LEARNING</span>
+      <p class="muted small">A unified pathway from learning to industry.</p>
+    </div>
+    <div class="footer-links">
+      <a href="/assets/recruiter.html" style="margin-right: 20px;">Recruiter Dashboard</a>
+      <a onclick="toggleTheme()">Toggle theme.</a>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

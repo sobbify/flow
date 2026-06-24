@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Recruiter Dashboard — Lighthouse Learning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .recruiter-container {
+    max-width: 1000px;
+    margin: 100px auto;
+    padding: 20px;
+  }
+  .candidate-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .candidate-table th, .candidate-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .candidate-table th {
+    background: rgba(255, 255, 255, 0.05);
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+  .candidate-table tr:last-child td {
+    border-bottom: none;
+  }
+  .candidate-table tr:hover {
+    background: rgba(255, 255, 255, 0.02);
+  }
+  .rating {
+    color: #ffcc00;
+    font-weight: bold;
+  }
+  .status-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    background: #4caf50;
+    color: white;
+  }
+  .download-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.2s;
+  }
+  .download-btn:hover {
+    opacity: 0.9;
+  }
+  .no-candidates {
+    text-align: center;
+    padding: 40px;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body data-theme="dark">
+
+<nav class="topnav">
+  <div class="brand" onclick="window.location.href='/'" style="cursor: pointer;">
+    <span class="logo-text">DIGITAL LABS</span>
+    <span class="logo-sub">RECRUITER</span>
+    <span class="dot dot1"></span>
+    <span class="dot dot2"></span>
+  </div>
+</nav>
+
+<div class="recruiter-container">
+  <h1 class="hero-title" style="font-size: 32px; margin-bottom: 10px;">Candidates Ready for Review</h1>
+  <p class="muted">Review and download candidate profiles that have completed the assessment.</p>
+
+  <div id="candidateList">
+    <div class="no-candidates">Loading candidates...</div>
+  </div>
+</div>
+
+<script>
+  const API_BASE = window.location.origin.includes('localhost') ? 'http://localhost:8000' : '';
+
+  async function fetchCandidates() {
+    try {
+      const res = await fetch(`${API_BASE}/api/v1/recruiter/candidates`);
+      if (!res.ok) throw new Error('Failed to fetch');
+      const candidates = await res.json();
+      renderCandidates(candidates);
+    } catch (e) {
+      document.getElementById('candidateList').innerHTML = `<div class="no-candidates">Error loading candidates: ${e.message}</div>`;
+    }
+  }
+
+  function renderCandidates(candidates) {
+    const container = document.getElementById('candidateList');
+    if (candidates.length === 0) {
+      container.innerHTML = '<div class="no-candidates">No candidates ready for review yet.</div>';
+      return;
+    }
+
+    let html = `
+      <table class="candidate-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Rating</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+    `;
+
+    candidates.forEach(c => {
+      html += `
+        <tr>
+          <td>
+            <div style="font-weight: 600;">${c.full_name || 'N/A'}</div>
+            <div class="muted" style="font-size: 12px;">${c.email || ''}</div>
+          </td>
+          <td>${c.target_role || 'N/A'}</td>
+          <td class="rating">${c.star_rating ? '★'.repeat(Math.round(c.star_rating)) + '☆'.repeat(5 - Math.round(c.star_rating)) : 'N/A'}</td>
+          <td><span class="status-badge">READY</span></td>
+          <td>
+            <button class="download-btn" onclick="downloadInfo('${c.session_id}')">Download JSON</button>
+          </td>
+        </tr>
+      `;
+    });
+
+    html += '</tbody></table>';
+    container.innerHTML = html;
+  }
+
+  async function downloadInfo(sessionId) {
+    try {
+      const res = await fetch(`${API_BASE}/api/v1/recruiter/candidates/${sessionId}`);
+      if (!res.ok) throw new Error('Failed to fetch candidate details');
+      const data = await res.json();
+      
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `candidate_${sessionId}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } catch (e) {
+      alert('Error downloading info: ' + e.message);
+    }
+  }
+
+  fetchCandidates();
+</script>
+</body>
+</html>
